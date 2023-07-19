@@ -20,6 +20,7 @@ export class RecipeDetailPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('ngOnInit');
     this.activatedRoute.paramMap.subscribe(paramMap => {
       if (!paramMap.has('recipeId')) {
         this.router.navigate(['/recipes']);
@@ -28,6 +29,26 @@ export class RecipeDetailPage implements OnInit {
       const recipeId = paramMap.get('recipeId');
       this.loadedRecipe = this.recipesService.getRecipe(recipeId);
     })
+  }
+
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter');
+  }
+
+  ionViewDidEnter() {
+    console.log('ionViewDidEnter');
+  }
+
+  ionViewWillLeave() {
+    console.log('ionViewWillLeave');
+  }
+
+  ionViewDidLeave() {
+    console.log('ionViewDidLeave');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy');
   }
 
   onDeleteRecipe() {
